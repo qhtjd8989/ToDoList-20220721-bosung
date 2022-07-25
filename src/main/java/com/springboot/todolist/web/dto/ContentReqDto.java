@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class CreateContentRepDto {
+public class ContentReqDto {
 	private int usercode;
 	private String content;
 	

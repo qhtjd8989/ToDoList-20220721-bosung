@@ -2,7 +2,7 @@ package com.springboot.todolist.domain.content;
 
 import java.time.LocalDateTime;
 
-import com.springboot.todolist.web.dto.CreateContentRespDto;
+import com.springboot.todolist.web.dto.ContentRespDto;
 import com.springboot.todolist.web.dto.ReadContentRespDto;
 
 import lombok.AllArgsConstructor;
@@ -22,8 +22,8 @@ public class Content {
 	private LocalDateTime createDate;
 	private LocalDateTime updateDate;
 	
-	public CreateContentRespDto toCreateContentDto(boolean insertStatus) {
-		return CreateContentRespDto.builder()
+	public ContentRespDto toCreateContentDto(boolean insertStatus) {
+		return ContentRespDto.builder()
 				.contentcode(contentcode)
 				.usercode(usercode)
 				.content(content)

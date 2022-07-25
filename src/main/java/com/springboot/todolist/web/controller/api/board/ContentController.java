@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.todolist.service.content.ContentService;
 import com.springboot.todolist.web.CMRespDto;
-import com.springboot.todolist.web.dto.CreateContentRepDto;
-import com.springboot.todolist.web.dto.CreateContentRespDto;
+import com.springboot.todolist.web.dto.ContentReqDto;
+import com.springboot.todolist.web.dto.ContentRespDto;
 import com.springboot.todolist.web.dto.ReadContentRespDto;
 
 import lombok.RequiredArgsConstructor;
@@ -22,11 +22,12 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/api/v1/todolist")
 @RequiredArgsConstructor
 public class ContentController {
+	
 	private final ContentService contentService;
 	
 	@PostMapping("/content")
-	public ResponseEntity<?> addcontent(@RequestBody CreateContentRepDto contentRepDto) {
-		CreateContentRespDto createContentRespDto = null;
+	public ResponseEntity<?> addcontent(@RequestBody ContentReqDto contentRepDto) {
+		ContentRespDto createContentRespDto = null;
 		
 		try {
 			createContentRespDto = contentService.addContent(contentRepDto);
@@ -37,6 +38,11 @@ public class ContentController {
 		return ResponseEntity.ok().body(new CMRespDto<>(1, "content 등록 성공", createContentRespDto));
 		
 	}
+	
+//	public ResponseEntity<?> addcontent(@RequestBody CreateContentRepDto contentRepDto) {
+//		return ResponseEntity.ok().body(new CMRespDto<>(1, "Test", "Test"));
+//	}
+//	테스팅
 	
 	@GetMapping("/list")
 	public ResponseEntity<?> getContentList(@RequestParam int page) {

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CreateContentRespDto {
+public class ContentRespDto {
 	private int contentcode; 
 	private int usercode;
 	private String content;

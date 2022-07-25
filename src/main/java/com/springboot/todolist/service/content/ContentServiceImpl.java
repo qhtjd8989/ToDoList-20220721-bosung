@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.todolist.domain.content.Content;
 import com.springboot.todolist.domain.content.ContentRepository;
-import com.springboot.todolist.web.dto.CreateContentRepDto;
-import com.springboot.todolist.web.dto.CreateContentRespDto;
+import com.springboot.todolist.web.dto.ContentReqDto;
+import com.springboot.todolist.web.dto.ContentRespDto;
 import com.springboot.todolist.web.dto.ReadContentRespDto;
 
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ public class ContentServiceImpl implements ContentService {
 
 	@Override
 	
-	public CreateContentRespDto addContent(CreateContentRepDto createContentRepDto) throws Exception {
+	public ContentRespDto addContent(ContentReqDto createContentRepDto) throws Exception {
 		Content contentEntity = createContentRepDto.toEntity();
 		boolean insertStatus = contentRepository.savecontent(contentEntity) > 0;
 		return contentEntity.toCreateContentDto(insertStatus);
